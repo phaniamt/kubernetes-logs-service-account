@@ -28,4 +28,6 @@
     - kind: ServiceAccount
       name: developer
       namespace: default
-
+# logs script
+## nginx-logs.sh ##
+    kubectl logs -f deployment/nginx-deployment -n default
