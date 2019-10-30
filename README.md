@@ -28,6 +28,9 @@
     - kind: ServiceAccount
       name: developer
       namespace: default
+# Get the token
+
+    kubectl get secret $(kubectl get serviceaccount developer -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
 # logs script
 ## nginx-logs.sh ##
     kubectl logs -f deployment/nginx-deployment -n default
